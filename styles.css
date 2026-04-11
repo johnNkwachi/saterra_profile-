@@ -1,13 +1,14 @@
 :root {
-  --bg: #f5f7ff;
-  --text: #0c167e;
-  --muted: #4e5ba6;
-  --primary: #111a97;
-  --primary-dark: #0a1270;
+  --bg: #f4f6ff;
+  --text: #131d78;
+  --muted: #5260aa;
+  --primary: #101a95;
+  --primary-dark: #0b126f;
   --accent: #ef6a22;
   --accent-dark: #d95a18;
   --card: #ffffff;
-  --border: #d8dcf8;
+  --border: #d7ddff;
+  --shadow: 0 12px 30px rgba(14, 21, 97, 0.08);
 }
 
 * {
@@ -19,22 +20,40 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 246, 255, 0.94), rgba(244, 246, 255, 0.94)),
+    url("assets/logo.png");
+  background-repeat: no-repeat, repeat;
+  background-position: center, center;
+  background-size: auto, 320px auto;
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero {
-  background: linear-gradient(140deg, var(--primary) 0%, var(--primary-dark) 65%, #151f8a 100%);
+  background: radial-gradient(circle at top left, #2431bb 0%, var(--primary) 38%, var(--primary-dark) 100%);
   color: #fff;
-  padding: 1rem 1.25rem 3.5rem;
+  padding: 1rem 1.25rem 4rem;
 }
 
 .nav {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 0.2rem 0;
 }
 
 .brand {
@@ -43,31 +62,39 @@ body {
 }
 
 .brand-logo {
-  height: 58px;
+  height: 118px;
   width: auto;
   display: block;
   background: #ffffff;
-  border-radius: 10px;
-  padding: 0.22rem 0.42rem;
+  border-radius: 14px;
+  padding: 0.35rem 0.55rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
 }
 
 .hero-content {
-  max-width: 1080px;
-  margin: 2.5rem auto 0;
+  max-width: 1120px;
+  margin: 2rem auto 0;
 }
 
 .tag {
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.55rem;
   font-size: 0.85rem;
-  opacity: 0.9;
+  opacity: 0.98;
   color: #ffd7bf;
+  font-weight: 700;
 }
 
 h1 {
-  margin: 0 0 0.8rem;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin: 0 0 0.9rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.2;
 }
 
@@ -81,7 +108,9 @@ h3 {
 }
 
 .hero-content p {
-  max-width: 800px;
+  max-width: 840px;
+  font-size: 1.05rem;
+  color: #e8ecff;
 }
 
 .hero-actions {
@@ -92,22 +121,49 @@ h3 {
 }
 
 .section {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem 1.25rem;
+  padding: 2.25rem 1.25rem;
 }
 
 .section-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.1rem;
 }
 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--shadow);
+}
+
+.values-grid {
+  margin-top: 1rem;
+}
+
+.services-grid .card h3 {
+  color: var(--primary);
+}
+
+.services-grid .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-grid .card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+}
+
+.services-grid .card p,
+.policy-card p {
+  color: #303c8d;
 }
 
 .pill-row {
@@ -117,18 +173,19 @@ h3 {
 }
 
 .pill {
-  background: #ffe7d9;
+  background: #fff0e7;
   color: #b24814;
   border-radius: 999px;
   padding: 0.35rem 0.8rem;
   font-weight: 600;
   font-size: 0.92rem;
+  border: 1px solid #ffd3bd;
 }
 
 .download {
-  background: #eff1ff;
+  background: #e9ecff;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 2rem;
 }
 
@@ -146,8 +203,8 @@ h3 {
 
 .btn {
   display: inline-block;
-  padding: 0.65rem 1rem;
-  border-radius: 8px;
+  padding: 0.68rem 1.05rem;
+  border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   border: 1px solid transparent;
@@ -174,8 +231,8 @@ h3 {
 }
 
 .btn-outline {
-  border-color: #ffd7bf;
-  color: #ffd7bf;
+  border-color: #f7c5a5;
+  color: #ffdfcc;
 }
 
 .btn-outline:hover {
@@ -193,21 +250,148 @@ h3 {
 }
 
 .footer {
-  text-align: center;
+  text-align: left;
   color: #edf0ff;
   background: #0a1270;
-  padding: 1.5rem 1rem;
+  padding: 1.8rem 1rem;
   font-size: 0.95rem;
 }
 
-code {
-  background: #e3e7ff;
-  padding: 0.1rem 0.3rem;
-  border-radius: 4px;
+.footer-grid {
+  max-width: 1120px;
+  margin: 0 auto 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.25rem 1rem;
+}
+
+.footer > p {
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .hero-content {
+    margin-top: 1.4rem;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 6vw, 2.4rem);
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  .section {
+    padding: 1.8rem 1rem;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 1.4rem 0.9rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
 }
 
 @media (max-width: 640px) {
-  .brand-logo {
-    height: 44px;
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
   }
+
+  .nav-actions {
+    width: auto;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .brand-logo {
+    height: 118px;
+  }
+
+  .hero-content p {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pill-row {
+    gap: 0.45rem;
+  }
+
+  .pill {
+    font-size: 0.84rem;
+    padding: 0.3rem 0.62rem;
+  }
+
+  .card {
+    padding: 1rem 0.95rem;
+  }
+
+  .download-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .download-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  body::before {
+    background-size: auto, 220px auto;
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 1.55rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .tag {
+    font-size: 0.76rem;
+  }
+
+  .brand-logo {
+    height: 118px;
+  }
+
+  .btn {
+    padding: 0.62rem 0.9rem;
+    font-size: 0.92rem;
+  }
+
+  .section {
+    padding: 1.55rem 0.85rem;
+  }
+}
 }
