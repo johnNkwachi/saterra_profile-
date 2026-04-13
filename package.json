@@ -1,0 +1,24 @@
+{
+  "name": "saterra_profile-",
+  "version": "1.0.0",
+  "description": "Saterra profile website and brochure generator.",
+  "main": "index.js",
+  "scripts": {
+    "generate:brochure": "node scripts/generate-brochure.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnNkwachi/saterra_profile-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/johnNkwachi/saterra_profile-/issues"
+  },
+  "homepage": "https://github.com/johnNkwachi/saterra_profile-#readme",
+  "dependencies": {
+    "pdfkit": "^0.18.0"
+  }
+}
